@@ -14,8 +14,8 @@ public class DataInitializer {
     CommandLineRunner initDatabase(EmployeeRepository repository) {
 
         return args -> {
-            log.info("Preloading " + repository.save(new Employee("Joe Exotic", "Tiger King")));
-            log.info("Preloading " + repository.save(new Employee("Carole Baskins", "That Bitch")));
+            log.info("Preloading " + repository.save(new Employee("Joe", "Exotic", "Tiger King")));
+            log.info("Preloading " + repository.save(new Employee("Carole", "Baskins", "That Bitch")));
         };
     }
 }
