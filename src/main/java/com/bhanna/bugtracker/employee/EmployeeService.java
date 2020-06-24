@@ -1,6 +1,5 @@
 package com.bhanna.bugtracker.employee;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -16,13 +15,12 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @Service
 public class EmployeeService {
 
-    @Autowired
-    private EmployeeRepository repository;
-
+    private final EmployeeRepository repository;
     private final EmployeeModelAssembler assembler;
 
-    EmployeeService(EmployeeModelAssembler assembler) {
+    EmployeeService(EmployeeModelAssembler assembler, EmployeeRepository repository) {
         this.assembler = assembler;
+        this.repository = repository;
     }
 
     public CollectionModel<EntityModel<Employee>> getEmployees() {

@@ -1,6 +1,5 @@
 package com.bhanna.bugtracker.employee;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 class EmployeeController {
 
-    @Autowired
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
+
+    EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
 
     // Aggregate root
 

@@ -6,7 +6,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LoginController {
-    private LoginService loginService;
+    private final LoginService loginService;
+
+    public LoginController(LoginService loginService) {
+        this.loginService = loginService;
+    }
 
     @PostMapping("/login")
     public String handleLogin(@RequestParam String username, @RequestParam String password) {
